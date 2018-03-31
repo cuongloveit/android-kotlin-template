@@ -1,0 +1,36 @@
+import com.template.buildsrc.Deps;
+
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion Deps.Version.compileSdk
+    defaultConfig {
+        applicationId "com.github.kotlintemplate"
+        minSdkVersion Deps.Version.minSdk
+        targetSdkVersion Deps.Version.compileSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Deps.kotlin
+    implementation Deps.AndroidSupport.appCompat
+    implementation Deps.AndroidSupport.constraint
+    testImplementation Deps.Test.junit
+    testImplementation Deps.Test.mockito
+    testImplementation Deps.Test.truth
+    testImplementation Deps.Test.robolectric
+}

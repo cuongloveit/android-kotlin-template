@@ -1,13 +1,12 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 27
-
-
+    compileSdkVersion build_versions.target_sdk
 
     defaultConfig {
-        minSdkVersion 19
-        targetSdkVersion 27
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
         versionCode 1
         versionName "1.0"
 
@@ -26,9 +25,25 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Support libraries
+    implementation deps.support.app_compat
+    implementation deps.support.v4
+    implementation deps.support.design
+    implementation deps.constraint_layout
 
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    implementation deps.kotlin.stdlib
+
+    // Android Testing Support Library's runner and rules
+    androidTestCompile deps.atsl.runner
+    androidTestCompile deps.atsl.rules
+    androidTestCompile deps.room.testing
+    androidTestCompile deps.arch_core.testing
+
+    // Dependencies for Android unit tests
+    androidTestCompile deps.junit
+    androidTestCompile deps.mockito.core, { exclude group: 'net.bytebuddy' }
+    androidTestCompile deps.dexmaker
+}
+repositories {
+    mavenCentral()
 }

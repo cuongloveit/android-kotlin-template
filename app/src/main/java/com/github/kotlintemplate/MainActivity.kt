@@ -1,9 +1,10 @@
 package com.github.kotlintemplate
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import com.github.kotlintemplate.base.BaseActivity
+import com.github.mvp.Mvp
 
-class MainActivity : AppCompatActivity() {
+class MainActivity<V : Mvp.View, P : Mvp.Presenter<V>> : BaseActivity<V, P>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

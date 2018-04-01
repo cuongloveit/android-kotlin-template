@@ -1,1 +1,1 @@
-include ':app', ':mvp', ':buildSrc'
+include ':app', ':mvp'

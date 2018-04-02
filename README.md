@@ -6,6 +6,6 @@ The Android project template uses Kotlin
  * [MVP](./mvp) Base code for MVP Architecture
  * [Utils](./utils) The common funtions 
 
-Example
+## Example
 
  * [sample](./app) demo usage of above libraries

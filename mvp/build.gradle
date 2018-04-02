@@ -1,7 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.cuongloveit.android-kotlin-template'
 
 android {
     compileSdkVersion build_versions.target_sdk
@@ -49,3 +47,5 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply from: rootProject.file('maven-push.gradle')

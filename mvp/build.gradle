@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.cuongloveit.android-kotlin-template'
 apply plugin: 'kotlin-android'
 
 android {
@@ -48,4 +50,3 @@ repositories {
     mavenCentral()
 }
 
-apply from: rootProject.file('maven-push.gradle')

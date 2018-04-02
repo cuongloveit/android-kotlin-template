@@ -5,7 +5,7 @@ import android.support.annotation.MainThread
 import java.util.*
 
 
-class BasePresenter<V : Mvp.View> : Mvp.Presenter<V> {
+open class BasePresenter<V : Mvp.View> : Mvp.Presenter<V> {
 
     private val pendingViewActions = LinkedList<ViewAction<V>>()
     /**

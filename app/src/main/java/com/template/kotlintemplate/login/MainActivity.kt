@@ -2,24 +2,25 @@ package com.template.kotlintemplate.login
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import com.template.kotlin.utils.showToast
 import com.template.kotlintemplate.R
 import com.template.kotlintemplate.base.BaseActivity
-import com.template.kotlintemplate.di.DaggerAppComponent
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.btLogin
+import kotlinx.android.synthetic.main.activity_main.edEmail
+import kotlinx.android.synthetic.main.activity_main.edPassword
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView {
     override fun onValidateFailed() {
-        Toast.makeText(this, "Please check again", Toast.LENGTH_LONG).show()
+        showToast("Please check again")
     }
 
     override fun onLoginSuccess() {
-        Toast.makeText(this, "Login success", Toast.LENGTH_LONG).show()
+        showToast("Login success")
     }
 
     override fun onLoginFail() {
-        Toast.makeText(this, "Login fail", Toast.LENGTH_LONG).show()
+        showToast("Login fail")
     }
 
     @Inject

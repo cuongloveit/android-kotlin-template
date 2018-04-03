@@ -1,0 +1,50 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+
+    defaultConfig {
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    // Support libraries
+    implementation deps.support.app_compat
+    implementation deps.support.v4
+    implementation deps.support.design
+    implementation deps.constraint_layout
+
+    implementation deps.kotlin.stdlib
+
+    // Android Testing Support Library's runner and rules
+    androidTestCompile deps.atsl.runner
+    androidTestCompile deps.atsl.rules
+    androidTestCompile deps.room.testing
+    androidTestCompile deps.arch_core.testing
+
+    // Dependencies for Android unit tests
+    androidTestCompile deps.junit
+    androidTestCompile deps.mockito.core, { exclude group: 'net.bytebuddy' }
+    androidTestCompile deps.dexmaker
+}
+repositories {
+    mavenCentral()
+}
+

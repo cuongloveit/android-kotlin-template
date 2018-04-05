@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.View
 
-abstract class MvpFragment<V : Mvp.View, P : Mvp.Presenter<V>> : Fragment() {
+open class MvpFragment<V : Mvp.View, P : Mvp.Presenter<V>> : Fragment() {
 
-    internal var mvpBinding: MvpBinding<V, P>? = null
+    var mvpBinding: MvpBinding<V, P>? = null
     private var presenter: P? = null
 
     /**

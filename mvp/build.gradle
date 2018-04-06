@@ -41,6 +41,10 @@ dependencies {
     androidTestCompile deps.room.testing
     androidTestCompile deps.arch_core.testing
 
+    // RxJava
+    implementation deps.rx_android
+    implementation deps.rxjava2
+
     // Dependencies for Android unit tests
     androidTestCompile deps.junit
     androidTestCompile deps.mockito.core, { exclude group: 'net.bytebuddy' }

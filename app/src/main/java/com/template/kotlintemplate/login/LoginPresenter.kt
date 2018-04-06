@@ -1,10 +1,16 @@
 package com.template.kotlintemplate.login
 
 import android.text.TextUtils
+import android.util.Log
 import com.template.kotlin.mvp.BasePresenter
 import javax.inject.Inject
 
 class LoginPresenter @Inject constructor() : BasePresenter<LoginView>() {
+
+    override fun attach(view: LoginView) {
+        super.attach(view)
+        Log.d("---","ppppppp")
+    }
 
     fun validate(email: String, password: String) {
         when {

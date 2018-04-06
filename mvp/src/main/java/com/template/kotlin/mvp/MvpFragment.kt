@@ -7,7 +7,7 @@ import android.view.View
 
 open class MvpFragment<V : Mvp.View, P : Mvp.Presenter<V>> : Fragment() {
 
-    var mvpBinding: MvpBinding<V, P>? = null
+    internal var mvpBinding: MvpBinding<V, P>? = null
     private var presenter: P? = null
 
     /**

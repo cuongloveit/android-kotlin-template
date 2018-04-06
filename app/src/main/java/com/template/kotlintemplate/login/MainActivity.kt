@@ -5,6 +5,7 @@ import android.view.View
 import com.template.kotlin.utils.showToast
 import com.template.kotlintemplate.R
 import com.template.kotlintemplate.base.BaseActivity
+import com.template.kotlintemplate.di.DaggerAppComponent
 import kotlinx.android.synthetic.main.activity_main.btLogin
 import kotlinx.android.synthetic.main.activity_main.edEmail
 import kotlinx.android.synthetic.main.activity_main.edPassword

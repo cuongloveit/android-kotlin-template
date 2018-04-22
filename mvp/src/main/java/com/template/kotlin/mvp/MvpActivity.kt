@@ -5,18 +5,17 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 
 abstract class MvpActivity<V : Mvp.View, P : Mvp.Presenter<V>> : AppCompatActivity() {
-
     internal var mvpBinding: MvpBinding<V, P>? = null
     private var presenter: P? = null
 
     override fun onStart() {
         super.onStart()
         if (mvpBinding != null) {
-            mvpBinding!!.bind()
+            mvpBinding !!.bind()
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (presenter is ActivityResultDelegate) {
             (presenter as ActivityResultDelegate).onActivityResult(ActivityResult.create(
@@ -29,14 +28,14 @@ abstract class MvpActivity<V : Mvp.View, P : Mvp.Presenter<V>> : AppCompatActivi
     override fun onStop() {
         super.onStop()
         if (mvpBinding != null) {
-            mvpBinding!!.unbind()
+            mvpBinding !!.unbind()
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         if (mvpBinding != null) {
-            mvpBinding!!.destroy(this)
+            mvpBinding !!.destroy(this)
         }
     }
 

@@ -34,7 +34,7 @@ object RxSaveFile {
 
     }
 
-    fun savePhoto(bitmap: Bitmap, context: Context, fileName: String): Flowable<Boolean> {
+    fun savePhoto(bitmap: Bitmap, context: Context, fileName: String): Flowable<String> {
         val path = SharePreferencesHelper.getPhotoPath(context) + "/$fileName"
         val folder = File(path).parentFile
         if (! folder.exists()) {
@@ -42,7 +42,10 @@ object RxSaveFile {
         }
         return Flowable.just(path)
                 .flatMap { Flowable.just(bitmap) }
-                .flatMap { Flowable.just(it.compress(getFormat(fileName), 100, FileOutputStream(path))) }
+                .flatMap {
+                    it.compress(getFormat(fileName), 100, FileOutputStream(path))
+                    Flowable.just(path)
+                }
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
 

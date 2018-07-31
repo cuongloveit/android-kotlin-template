@@ -29,6 +29,9 @@ class StatusPageView : FrameLayout {
         tvMessage = findViewById(R.id.tvMessage)
         flMessage = findViewById(R.id.flMessage)
         flLoading = findViewById(R.id.flLoading)
+        setOnClickListener {
+            onTry?.invoke()
+        }
 
     }
 
@@ -47,5 +50,12 @@ class StatusPageView : FrameLayout {
 
     fun showContent() {
         visibility = View.GONE
+    }
+
+    private var onTry: (() -> Unit)? = null
+
+    fun setTryAgainListener(text: String, onTry: () -> Unit) {
+        showMessage(text)
+        this.onTry = onTry
     }
 }

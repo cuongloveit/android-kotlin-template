@@ -36,10 +36,16 @@ dependencies {
     implementation deps.kotlin.stdlib
     implementation project(':mvp')
     implementation project(':utils')
+    implementation project(':popupmenuhelper')
 
     // RxJava
     implementation deps.rx_android
     implementation deps.rxjava2
+
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.retrofit.rxadapter
+    implementation deps.retrofit.okhttp
 
     // Dagger
     implementation deps.dagger.runtime

@@ -3,6 +3,7 @@ package com.template.kotlintemplate.login
 import android.os.Bundle
 import android.view.View
 import com.template.kotlin.utils.showToast
+import com.template.kotlintemplate.MyApp
 import com.template.kotlintemplate.R
 import com.template.kotlintemplate.base.BaseActivity
 import com.template.kotlintemplate.di.DaggerAppComponent
@@ -30,10 +31,10 @@ class MainActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        DaggerAppComponent.create().inject(this)
+        MyApp.appComponent.inject(this)
         connect(presenter, this)
-        btLogin.setOnClickListener(View.OnClickListener {
+        btLogin.setOnClickListener {
             presenter.validate(edEmail.text.toString(), edPassword.text.toString())
-        })
+        }
     }
 }

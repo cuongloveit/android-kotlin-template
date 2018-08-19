@@ -21,7 +21,7 @@ class AppModule {
     @Provides
     fun provideRetrofitRemote(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-                .baseUrl("http://anyapi.com/")
+                .baseUrl("https://api.github.com/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)

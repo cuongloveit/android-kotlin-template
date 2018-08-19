@@ -37,6 +37,7 @@ dependencies {
     implementation project(':mvp')
     implementation project(':utils')
     implementation project(':popupmenuhelper')
+    implementation project(':statuspageview')
 
     // RxJava
     implementation deps.rx_android
@@ -51,8 +52,6 @@ dependencies {
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler
 
-    // Dependencies for Android unit tests
-    androidTestCompile deps.junit
-    androidTestCompile deps.mockito.core, { exclude group: 'net.bytebuddy' }
-    androidTestCompile deps.dexmaker
+    implementation 'vn.tiki.noadapter2:noadapter:2.0.2'
+
 }

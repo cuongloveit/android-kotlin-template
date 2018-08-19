@@ -33,16 +33,8 @@ dependencies {
 
     implementation deps.kotlin.stdlib
 
-    // Android Testing Support Library's runner and rules
-    androidTestCompile deps.atsl.runner
-    androidTestCompile deps.atsl.rules
-    androidTestCompile deps.room.testing
-    androidTestCompile deps.arch_core.testing
 
-    // Dependencies for Android unit tests
-    androidTestCompile deps.junit
-    androidTestCompile deps.mockito.core, { exclude group: 'net.bytebuddy' }
-    androidTestCompile deps.dexmaker
+
 }
 repositories {
     mavenCentral()

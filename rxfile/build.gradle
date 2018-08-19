@@ -36,5 +36,5 @@ dependencies {
     implementation deps.rx_android
     implementation deps.rxjava2
 
-    androidTestCompile deps.junit
+
 }

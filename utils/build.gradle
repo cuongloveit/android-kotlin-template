@@ -32,5 +32,4 @@ dependencies {
 
     implementation deps.kotlin.stdlib
 
-    androidTestCompile deps.junit
 }

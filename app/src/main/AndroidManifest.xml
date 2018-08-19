@@ -18,7 +18,7 @@
         <activity android:name=".RetrofitDemoActivity">
 
         </activity>
-        <activity android:name=".ui.screen.repository.resumeobservable.RepositoriesActivity">
+        <activity android:name=".ui.screen.repository.list.RepositoriesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

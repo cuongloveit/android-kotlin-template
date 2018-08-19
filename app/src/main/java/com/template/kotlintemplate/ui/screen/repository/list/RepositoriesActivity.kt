@@ -1,4 +1,4 @@
-package com.template.kotlintemplate.ui.screen.repository.resumeobservable
+package com.template.kotlintemplate.ui.screen.repository.list
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -7,10 +7,12 @@ import com.template.kotlintemplate.MyApp
 import com.template.kotlintemplate.R
 import com.template.kotlintemplate.network.response.Repository
 import kotlinx.android.synthetic.main.activity_repository.recyclerView
+import kotlinx.android.synthetic.main.activity_repository.statusPageView
 import vn.tiki.noadapter2.OnlyAdapter
 import javax.inject.Inject
 
-class RepositoriesActivity : MvpActivity<RepositoriesView, RepositoriesPresenter>(), RepositoriesView {
+class RepositoriesActivity : MvpActivity<RepositoriesView, RepositoriesPresenter>(),
+    RepositoriesView {
   @Inject
   lateinit var presenter: RepositoriesPresenter
   private lateinit var adapter: OnlyAdapter
@@ -26,7 +28,9 @@ class RepositoriesActivity : MvpActivity<RepositoriesView, RepositoriesPresenter
   private fun setupList() {
     recyclerView.layoutManager = LinearLayoutManager(this)
     adapter = OnlyAdapter.builder()
-        .viewHolderFactory { parent, type -> RepositoryViewHolder.create(parent) }
+        .viewHolderFactory { parent, type ->
+          RepositoryViewHolder.create(parent)
+        }
         .build()
     recyclerView.adapter = adapter
 
@@ -34,11 +38,16 @@ class RepositoriesActivity : MvpActivity<RepositoriesView, RepositoriesPresenter
 
 
   override fun onGetRepositoriesSuccess(items: List<Repository>) {
-      adapter.setItems(items)
+    adapter.setItems(items)
+    statusPageView.showContent()
   }
 
   override fun onError() {
+    statusPageView.showMessage("Error")
+  }
 
+  override fun showLoading() {
+    statusPageView.showLoading()
   }
 
 

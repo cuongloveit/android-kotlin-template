@@ -1,4 +1,4 @@
-package com.template.kotlintemplate.ui.screen.repository.resumeobservable
+package com.template.kotlintemplate.ui.screen.repository.list
 
 import com.template.kotlin.mvp.BasePresenter
 import com.template.kotlintemplate.network.ApiService
@@ -14,6 +14,7 @@ class RepositoriesPresenter @Inject constructor(val apiService: ApiService) : Ba
   }
 
   fun getListRepository(keyword: String) {
+    view?.showLoading()
     apiService.searchRepository(keyword)
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())

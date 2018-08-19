@@ -1,4 +1,4 @@
-package com.template.kotlintemplate.ui.screen.repository.resumeobservable
+package com.template.kotlintemplate.ui.screen.repository.list
 
 import android.view.LayoutInflater
 import android.view.View

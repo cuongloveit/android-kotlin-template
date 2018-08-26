@@ -7,51 +7,70 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion build_versions.target_sdk
-    defaultConfig {
-        applicationId "com.github.kotlintemplate"
-        minSdkVersion build_versions.min_sdk
-        targetSdkVersion build_versions.target_sdk
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+  compileSdkVersion build_versions.target_sdk
+  defaultConfig {
+    applicationId "com.github.kotlintemplate"
+    minSdkVersion build_versions.min_sdk
+    targetSdkVersion build_versions.target_sdk
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+
+    vectorDrawables.useSupportLibrary = true
+  }
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+  }
+
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
     }
+  }
+
+
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // Support libraries
-    implementation deps.support.app_compat
-    implementation deps.support.v4
-    implementation deps.support.design
-    implementation deps.constraint_layout
+  // Support libraries
+  implementation deps.support.app_compat
+  implementation deps.support.v4
+  implementation deps.support.design
+  implementation deps.constraint_layout
 
-    implementation deps.kotlin.stdlib
-    implementation project(':mvp')
-    implementation project(':utils')
-    implementation project(':popupmenuhelper')
-    implementation project(':statuspageview')
+  implementation deps.kotlin.stdlib
+  implementation deps.kotlin.test
+  implementation project(':mvp')
+  implementation project(':utils')
+  implementation project(':popupmenuhelper')
+  implementation project(':statuspageview')
 
-    // RxJava
-    implementation deps.rx_android
-    implementation deps.rxjava2
+  // RxJava
+  implementation deps.rx_android
+  implementation deps.rxjava2
 
-    implementation deps.retrofit.runtime
-    implementation deps.retrofit.gson
-    implementation deps.retrofit.rxadapter
-    implementation deps.retrofit.okhttp
+  implementation deps.retrofit.runtime
+  implementation deps.retrofit.gson
+  implementation deps.retrofit.rxadapter
+  implementation deps.retrofit.okhttp
 
-    // Dagger
-    implementation deps.dagger.runtime
-    kapt deps.dagger.compiler
+  // Dagger
+  implementation deps.dagger.runtime
+  implementation 'com.android.support:support-v4:27.1.1'
+  implementation 'com.android.support:support-vector-drawable:27.1.1'
+  kapt deps.dagger.compiler
 
-    implementation 'vn.tiki.noadapter2:noadapter:2.0.2'
+  implementation 'vn.tiki.noadapter2:noadapter:2.0.2'
+
+  testImplementation "org.robolectric:robolectric:3.8"
+  testImplementation 'com.github.fabioCollini.daggermock:daggermock:0.8.4'
+  testImplementation 'com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.4'
+  testImplementation "org.mockito:mockito-core:2.21.0"
 
 }

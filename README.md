@@ -9,6 +9,10 @@ The Android project template uses Kotlin
  * [RxFile](./rxfile) File manager with RxJava (updating...)
  * [StatusPageView](./statuspageview) Show status page (Loading, success, error, empty, retry,... )
 
-## Example
+## Practices
+ * [Unit Test](./app/src/test) Junit, Robolectric, Mockito, Dagger Mock
+   
+
+## Example  
 
  * [sample](./app) demo usage of above libraries

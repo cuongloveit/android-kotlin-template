@@ -15,4 +15,9 @@ class MyApp : BaseApp() {
         appComponent = DaggerAppComponent.create()
 
     }
+
+    fun setAppComponent(component: AppComponent){
+        appComponent = component
+    }
+
 }

@@ -2,11 +2,12 @@ package com.template.kotlintemplate.ui.screen.repository.list
 
 import com.template.kotlin.mvp.BasePresenter
 import com.template.kotlintemplate.network.ApiService
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.template.kotlintemplate.ultils.RxSchedulers
 import javax.inject.Inject
 
-class RepositoriesPresenter @Inject constructor(val apiService: ApiService) : BasePresenter<RepositoriesView>() {
+class RepositoriesPresenter @Inject constructor(private val apiService: ApiService,
+                                                private val rxSchedulers: RxSchedulers) :
+    BasePresenter<RepositoriesView>() {
   override fun attach(view: RepositoriesView) {
     super.attach(view)
     getListRepository("Android")
@@ -16,8 +17,7 @@ class RepositoriesPresenter @Inject constructor(val apiService: ApiService) : Ba
   fun getListRepository(keyword: String) {
     view?.showLoading()
     apiService.searchRepository(keyword)
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
+        .compose(rxSchedulers.applySchedulers())
         .subscribe({
           view?.onGetRepositoriesSuccess(it.items)
         }, {

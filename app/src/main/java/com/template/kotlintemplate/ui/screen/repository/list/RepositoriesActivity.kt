@@ -1,7 +1,9 @@
 package com.template.kotlintemplate.ui.screen.repository.list
 
 import android.os.Bundle
+import android.support.annotation.VisibleForTesting
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.template.kotlin.mvp.MvpActivity
 import com.template.kotlintemplate.MyApp
 import com.template.kotlintemplate.R
@@ -15,7 +17,8 @@ class RepositoriesActivity : MvpActivity<RepositoriesView, RepositoriesPresenter
     RepositoriesView {
   @Inject
   lateinit var presenter: RepositoriesPresenter
-  private lateinit var adapter: OnlyAdapter
+  @VisibleForTesting
+  lateinit var adapter: OnlyAdapter
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -46,6 +49,7 @@ class RepositoriesActivity : MvpActivity<RepositoriesView, RepositoriesPresenter
     statusPageView.showMessage("Error")
   }
 
+  @VisibleForTesting
   override fun showLoading() {
     statusPageView.showLoading()
   }

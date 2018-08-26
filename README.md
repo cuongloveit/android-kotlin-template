@@ -10,7 +10,7 @@ The Android project template uses Kotlin
  * [StatusPageView](./statuspageview) Show status page (Loading, success, error, empty, retry,... )
 
 ## Practices
- * [Unit Test](./app/src/test) Junit, Robolectric, Mockito, Dagger Mock
+ * [Unit Test](./app/src/test/java/com/template/kotlintemplate/) Junit, Robolectric, Mockito, Dagger Mock
    
 
 ## Example  

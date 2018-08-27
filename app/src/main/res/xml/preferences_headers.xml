@@ -9,6 +9,14 @@
   </header>
 
   <header
+      android:summary="Example for MVP"
+      android:title="LoginActivity">
+    <intent
+        android:targetClass="com.template.kotlintemplate.ui.screen.login.LoginActivity"
+        android:targetPackage="com.github.kotlintemplate" />
+  </header>
+
+  <header
       android:summary="Broadcast reviceiver demo"
       android:title="BroadcastDemoActivity">
     <intent

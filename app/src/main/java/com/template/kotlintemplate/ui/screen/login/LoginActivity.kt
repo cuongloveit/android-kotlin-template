@@ -31,7 +31,7 @@ class LoginActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView {
     }
 
     override fun onLoginSuccess() {
-        showToast("Login success")
+        showToast("Login successfully")
     }
 
     override fun onLoginFail() {

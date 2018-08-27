@@ -11,7 +11,7 @@ The Android project template uses Kotlin
 
 ## Practices
  * [Unit Test](./app/src/test/java/com/template/kotlintemplate/) Junit, Robolectric, Mockito, Dagger Mock
-   
+ * [UI Test](./app/src/androidTest/java/com/template/kotlintemplate/) UI/Automation Testing with Espresso
 
 ## Example  
 

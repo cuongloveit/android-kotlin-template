@@ -9,10 +9,8 @@ import com.template.kotlintemplate.network.response.RepositoriesResponse
 import com.template.kotlintemplate.ui.screen.repository.list.RepositoriesActivity
 import com.template.kotlintemplate.ui.screen.repository.list.RepositoriesPresenter
 import io.reactivex.Flowable
-import io.reactivex.FlowableTransformer
 import io.reactivex.internal.operators.flowable.FlowableError
 import io.reactivex.internal.operators.flowable.FlowableJust
-import io.reactivex.schedulers.Schedulers
 import it.cosenonjaviste.daggermock.DaggerMock
 import org.junit.*
 import org.junit.runner.*
@@ -52,7 +50,7 @@ class RepositoriesActivityTest {
   @Test
   fun shouldShowListUI() {
     val response = RepositoriesResponse(4, false, listOf())
-    `when`(apiService.searchRepository("Android")).thenReturn(Flowable.just(response))
+    `when`(apiService.getAllRepositories("Android")).thenReturn(Flowable.just(response))
     initWidget()
     assertEquals(StatusPageView.STATUS_SHOW_CONTENT, statusPageView.getStatus())
 
@@ -61,7 +59,7 @@ class RepositoriesActivityTest {
   @Test
   @Throws(Exception::class)
   fun shouldShowErrorUI() {
-    `when`(apiService.searchRepository("Android")).thenReturn(FlowableError<RepositoriesResponse>(FlowableJust<Throwable>(
+    `when`(apiService.getAllRepositories("Android")).thenReturn(FlowableError<RepositoriesResponse>(FlowableJust<Throwable>(
         Exception("Error"))))
     initWidget()
     assertEquals(StatusPageView.STATUS_SHOW_MESSAGE, statusPageView.getStatus())

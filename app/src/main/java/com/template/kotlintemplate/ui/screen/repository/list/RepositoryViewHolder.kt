@@ -21,7 +21,7 @@ class RepositoryViewHolder private constructor(view: View) : AbsViewHolder(view)
     super.bind(item)
     item as Repository
     tvTitle.text = item.name
-    tvDescription.text = item.owner.login
+    tvDescription.text = item.fullName
   }
 
   companion object {

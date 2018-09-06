@@ -1,1 +1,1 @@
-include ':app', ':mvp', ':utils', ':home', ':rxfile', ':statuspageview', ':popupmenuhelper'
+include ':app', ':mvp', ':utils', ':rxfile', ':statuspageview', ':popupmenuhelper', ':architecture',":noadapter"

@@ -40,7 +40,7 @@ class RepositoriesPresenterTest {
   fun shouldGetListSuccess() {
     val response = RepositoriesResponse(4, false, listOf())
     `when`(rxSchedulers.applySchedulers<Any>()).thenReturn(applySchedulers())
-    `when`(apiService.searchRepository("Android")).thenReturn(Flowable.just(response))
+    `when`(apiService.getAllRepositories("Android")).thenReturn(Flowable.just(response))
 
     repositoriesPresenter.attach(view)
     verify(view).onGetRepositoriesSuccess(response.items)
@@ -49,7 +49,7 @@ class RepositoriesPresenterTest {
   @Test
   fun shouldGetListError() {
     `when`(rxSchedulers.applySchedulers<Any>()).thenReturn(applySchedulers())
-    `when`(apiService.searchRepository("Android")).thenReturn(FlowableError<RepositoriesResponse>(FlowableJust<Throwable>(
+    `when`(apiService.getAllRepositories("Android")).thenReturn(FlowableError<RepositoriesResponse>(FlowableJust<Throwable>(
         Exception("Error"))))
     repositoriesPresenter.attach(view)
     verify(view).onError()

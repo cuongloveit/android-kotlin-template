@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.givestech.data.Repository
 import com.template.kotlintemplate.R
-import com.template.kotlintemplate.network.response.Repository
 import vn.tiki.noadapter2.AbsViewHolder
 
 class RepositoryViewHolder private constructor(view: View) : AbsViewHolder(view) {

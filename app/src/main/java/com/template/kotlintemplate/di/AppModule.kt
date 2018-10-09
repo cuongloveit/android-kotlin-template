@@ -1,8 +1,10 @@
 package com.template.kotlintemplate.di
 
+import com.givestech.base.IDatabaseHelper
 import com.ihsanbal.logging.Level
 import com.ihsanbal.logging.LoggingInterceptor
 import com.template.kotlintemplate.BuildConfig
+import com.template.kotlintemplate.database.DatabaseHelper
 import com.template.kotlintemplate.network.ApiService
 import com.template.kotlintemplate.ultils.RxSchedulers
 import dagger.Module
@@ -48,6 +50,11 @@ open class AppModule {
   @Provides
   open fun provideRxScheduler(): RxSchedulers {
     return RxSchedulers()
+  }
+
+  @Provides
+  fun databaseHelper(): IDatabaseHelper {
+    return DatabaseHelper()
   }
 
 }

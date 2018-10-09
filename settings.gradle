@@ -1,1 +1,2 @@
-include ':app', ':mvp', ':utils', ':rxfile', ':statuspageview', ':popupmenuhelper', ':architecture',":noadapter"
+include ':app', ':mvp', ':utils', ':rxfile', ':statuspageview', ':popupmenuhelper', ':base', ':submodule', ':data', ':componentdemo',
+    ':mvi', ":noadapter", ':core'

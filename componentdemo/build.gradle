@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.cuongloveit.android-kotlin-template'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+  compileSdkVersion build_versions.target_sdk
+  defaultConfig {
+    minSdkVersion build_versions.min_sdk
+    targetSdkVersion build_versions.target_sdk
+    versionName "1.0"
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+}
+
+
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+  implementation deps.kotlin.stdlib
+  // Support libraries
+  implementation deps.support.app_compat
+  implementation deps.support.v4
+  implementation deps.support.design
+  implementation deps.constraint_layout
+
+  // Mosby
+  implementation "com.hannesdorfmann.mosby3:mvi:3.1.0"
+  implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+  // RxBinding
+  implementation "com.jakewharton.rxbinding2:rxbinding-kotlin:2.1.1"
+  implementation "com.jakewharton.rxbinding2:rxbinding-support-v4-kotlin:2.1.1"
+  implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7-kotlin:2.1.1"
+
+
+}

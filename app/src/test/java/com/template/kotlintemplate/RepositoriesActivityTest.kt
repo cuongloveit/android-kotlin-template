@@ -1,11 +1,11 @@
 package com.template.kotlintemplate
 
 import android.support.v7.widget.RecyclerView
+import com.givestech.data.Repository
 import com.givestech.statuspageview.StatusPageView
 import com.template.kotlintemplate.di.AppComponent
 import com.template.kotlintemplate.di.AppModule
 import com.template.kotlintemplate.network.ApiService
-import com.template.kotlintemplate.network.response.RepositoriesResponse
 import com.template.kotlintemplate.ui.screen.repository.list.RepositoriesActivity
 import com.template.kotlintemplate.ui.screen.repository.list.RepositoriesPresenter
 import io.reactivex.Flowable
@@ -49,8 +49,7 @@ class RepositoriesActivityTest {
 
   @Test
   fun shouldShowListUI() {
-    val response = RepositoriesResponse(4, false, listOf())
-    `when`(apiService.getAllRepositories("Android")).thenReturn(Flowable.just(response))
+    `when`(apiService.getAllRepositories()).thenReturn(Flowable.just(listOf()))
     initWidget()
     assertEquals(StatusPageView.STATUS_SHOW_CONTENT, statusPageView.getStatus())
 
@@ -59,7 +58,7 @@ class RepositoriesActivityTest {
   @Test
   @Throws(Exception::class)
   fun shouldShowErrorUI() {
-    `when`(apiService.getAllRepositories("Android")).thenReturn(FlowableError<RepositoriesResponse>(FlowableJust<Throwable>(
+    `when`(apiService.getAllRepositories()).thenReturn(FlowableError<List<Repository>>(FlowableJust<Throwable>(
         Exception("Error"))))
     initWidget()
     assertEquals(StatusPageView.STATUS_SHOW_MESSAGE, statusPageView.getStatus())

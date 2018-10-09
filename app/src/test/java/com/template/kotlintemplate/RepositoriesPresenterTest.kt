@@ -1,9 +1,9 @@
 package com.template.kotlintemplate
 
+import com.givestech.data.Repository
 import com.template.kotlintemplate.di.AppComponent
 import com.template.kotlintemplate.di.AppModule
 import com.template.kotlintemplate.network.ApiService
-import com.template.kotlintemplate.network.response.RepositoriesResponse
 import com.template.kotlintemplate.ui.screen.repository.list.RepositoriesPresenter
 import com.template.kotlintemplate.ui.screen.repository.list.RepositoriesView
 import com.template.kotlintemplate.ultils.RxSchedulers
@@ -38,18 +38,17 @@ class RepositoriesPresenterTest {
 
   @Test
   fun shouldGetListSuccess() {
-    val response = RepositoriesResponse(4, false, listOf())
     `when`(rxSchedulers.applySchedulers<Any>()).thenReturn(applySchedulers())
-    `when`(apiService.getAllRepositories("Android")).thenReturn(Flowable.just(response))
+    `when`(apiService.getAllRepositories()).thenReturn(Flowable.just(listOf()))
 
     repositoriesPresenter.attach(view)
-    verify(view).onGetRepositoriesSuccess(response.items)
+    verify(view).onGetRepositoriesSuccess(listOf())
   }
 
   @Test
   fun shouldGetListError() {
     `when`(rxSchedulers.applySchedulers<Any>()).thenReturn(applySchedulers())
-    `when`(apiService.getAllRepositories("Android")).thenReturn(FlowableError<RepositoriesResponse>(FlowableJust<Throwable>(
+    `when`(apiService.getAllRepositories()).thenReturn(FlowableError<List<Repository>>(FlowableJust<Throwable>(
         Exception("Error"))))
     repositoriesPresenter.attach(view)
     verify(view).onError()

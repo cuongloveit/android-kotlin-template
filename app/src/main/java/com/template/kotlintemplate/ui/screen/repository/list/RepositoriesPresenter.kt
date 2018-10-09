@@ -4,7 +4,7 @@ import android.util.Log
 import com.template.kotlin.mvp.BasePresenter
 import com.template.kotlintemplate.MyApp
 import com.template.kotlintemplate.network.ApiService
-import com.template.kotlintemplate.network.response.Repository
+import com.givestech.data.Repository
 import io.reactivex.Flowable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

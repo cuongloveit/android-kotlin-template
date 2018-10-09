@@ -1,6 +1,8 @@
 package com.template.kotlintemplate
 
 import android.arch.persistence.room.Room
+import com.facebook.FacebookSdk
+import com.facebook.appevents.AppEventsLogger
 import com.template.kotlintemplate.base.BaseApp
 import com.template.kotlintemplate.database.AppDatabase
 import com.template.kotlintemplate.di.AppComponent

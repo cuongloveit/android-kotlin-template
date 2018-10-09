@@ -1,5 +1,6 @@
 package com.template.kotlintemplate.network.response
 
+import com.givestech.data.Repository
 import com.google.gson.annotations.SerializedName
 
 data class RepositoriesResponse(@SerializedName("total_count")

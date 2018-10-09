@@ -2,6 +2,11 @@
   <string name="app_name">Kotlin Template</string>
   <string name="title_activity_menu_screen">List Of Screen</string>
 
+  <string name="facebook_app_id">329600097845413</string>
+  <string name="fb_login_protocol_scheme">fb329600097845413</string>
+
+
+
   <!-- Strings related to Settings -->
 
   <!-- Example General settings -->

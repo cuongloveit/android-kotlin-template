@@ -31,8 +31,15 @@ android {
       includeAndroidResources = true
     }
   }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
 
+}
 
+androidExtensions {
+  experimental = true
 }
 
 dependencies {
@@ -50,6 +57,12 @@ dependencies {
   implementation project(':utils')
   implementation project(':popupmenuhelper')
   implementation project(':statuspageview')
+  implementation project(':base')
+  implementation project(':data')
+  implementation project(':mvi')
+  implementation project(':componentdemo')
+  implementation project(":noadapter")
+  // implementation project(':core')
 
   // RxJava
   implementation deps.rx_android
@@ -60,6 +73,8 @@ dependencies {
   implementation deps.retrofit.gson
   implementation deps.retrofit.rxadapter
   implementation deps.retrofit.okhttp
+  implementation deps.glide
+  implementation deps.glideOkhttp
   implementation(deps.logging_interceptor) {
     exclude group: 'org.json', module: 'json'
   }
@@ -71,11 +86,12 @@ dependencies {
 
   // Dagger
   implementation deps.dagger.runtime
-  implementation 'com.android.support:support-v4:27.1.1'
-  implementation 'com.android.support:support-vector-drawable:27.1.1'
   kapt deps.dagger.compiler
 
-  implementation project(":noadapter")
+  //social
+  implementation("com.facebook.android:facebook-login:4.34.0")
+  implementation 'com.twitter.sdk.android:twitter:3.1.1'
+
 
   testImplementation "org.robolectric:robolectric:3.8"
   testImplementation 'com.github.fabioCollini.daggermock:daggermock:0.8.4'
@@ -83,8 +99,11 @@ dependencies {
   testImplementation "org.mockito:mockito-core:2.21.0"
   androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
   androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.2'
-  androidTestImplementation 'com.android.support.test:runner:1.0.2'
-  androidTestImplementation 'com.android.support.test:rules:1.0.2'
 
+
+}
+
+configurations.all {
+  resolutionStrategy.force deps.support.cardview
 
 }

@@ -2,11 +2,14 @@ package vn.tiki.noadapter2
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import kotlinx.android.extensions.LayoutContainer
 
 /**
  * Created by Giang Nguyen on 8/14/16.
  */
-open class AbsViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+open class AbsViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener, LayoutContainer {
+  override val containerView: View?
+    get() = itemView
 
   private var item: Any? = null
   private var onItemClickListener: OnItemClickListener? = null
@@ -50,7 +53,7 @@ open class AbsViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnCli
 
   override fun onClick(view: View) {
     val position = adapterPosition
-    if ( position != RecyclerView.NO_POSITION) {
+    if (position != RecyclerView.NO_POSITION) {
       onItemClickListener?.onItemClick(view, item!!, position)
     }
   }

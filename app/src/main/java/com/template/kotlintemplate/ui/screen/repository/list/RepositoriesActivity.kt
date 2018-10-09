@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.template.kotlin.mvp.MvpActivity
 import com.template.kotlintemplate.MyApp
 import com.template.kotlintemplate.R
-import com.template.kotlintemplate.network.response.Repository
+import com.givestech.data.Repository
 import kotlinx.android.synthetic.main.activity_repository.recyclerView
 import kotlinx.android.synthetic.main.activity_repository.statusPageView
 import vn.tiki.noadapter2.DiffCallback

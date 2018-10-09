@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+      android:enabled="true"
+      android:icon="@drawable/ic_account_circle"
+      android:title="Item 1" />
+  <item
+      android:enabled="true"
+      android:icon="@drawable/ic_account_circle"
+      android:title="Item 2" />
+  <item
+      android:enabled="false"
+      android:icon="@drawable/shape_transparent"
+      android:title="Item 3" />
+
+  <item
+      android:enabled="true"
+      android:icon="@drawable/ic_account_circle"
+      android:title="Item 4" />
+
+  <item
+      android:enabled="true"
+      android:icon="@drawable/ic_account_circle"
+      android:title="Item 5" />
+
+
+</menu>

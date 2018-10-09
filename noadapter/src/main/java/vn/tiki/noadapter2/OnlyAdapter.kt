@@ -4,7 +4,6 @@ import android.os.AsyncTask
 import android.support.annotation.VisibleForTesting
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.ViewGroup
 import java.lang.ref.WeakReference
 import java.util.ArrayList

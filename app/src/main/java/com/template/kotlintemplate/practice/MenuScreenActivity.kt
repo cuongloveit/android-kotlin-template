@@ -32,7 +32,7 @@ class MenuScreenActivity : AppCompatPreferenceActivity() {
 
 
   override fun onBuildHeaders(target: MutableList<Header>) {
-    loadHeadersFromResource(R.xml.preferences_headers, target)
+    loadHeadersFromResource(R.xml.header_menu_screens, target)
     fragments.clear()
     val headerIterator = target.iterator()
     while (headerIterator.hasNext()) {

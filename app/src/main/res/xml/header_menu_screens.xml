@@ -31,13 +31,13 @@
         android:targetPackage="com.github.kotlintemplate" />
   </header>
 
-  <header
-      android:summary="Component Demo"
-      android:title="ComponentActivity">
-    <intent
-        android:targetClass="com.givestech.componentdemo.ComponentActivity"
-        android:targetPackage="com.github.kotlintemplate" />
-  </header>
+  <!--<header-->
+  <!--android:summary="Component Demo"-->
+  <!--android:title="ComponentActivity">-->
+  <!--<intent-->
+  <!--android:targetClass="com.givestech.componentdemo.ComponentActivity"-->
+  <!--android:targetPackage="com.github.kotlintemplate" />-->
+  <!--</header>-->
 <header
       android:summary="Social Demo"
       android:title="SocialDemoActivity">
@@ -62,4 +62,11 @@
         android:targetClass="com.template.kotlintemplate.practice.broadcast.BroadCastDemoActivity"
         android:targetPackage="com.github.kotlintemplate" />
   </header>
+
+  <header android:id="@+id/btnShowNotification"
+      android:title="Show Notification"
+      android:key="showNotification"
+      android:summary="Notification demo">
+  </header>
+
 </preference-headers>
